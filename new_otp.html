@@ -15,7 +15,7 @@
     <meta name="color-scheme" content="light dark" />
     <meta name="supported-color-schemes" content="light dark" />
 
-    <title>Graduate OTP Verification</title>
+    <title>{{BRAND_NAME}} OTP Verification</title>
 
     <!--[if mso]>
       <xml>
@@ -150,6 +150,20 @@
         color: #111827;
       }
 
+      /* Primary button (verification link) */
+      .btnWrap {
+        border-radius: 12px;
+        background: #111827;
+      }
+      .btnText {
+        display: inline-block;
+        padding: 12px 18px;
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
       /* Logos */
       .logoLight {
         display: block;
@@ -221,6 +235,9 @@
         .link {
           color: #93c5fd !important;
         }
+        .btnWrap {
+          background: #2563eb !important;
+        }
 
         /* Swap logos in dark mode */
         .logoLight {
@@ -235,7 +252,7 @@
 
   <body class="font" style="margin: 0; padding: 0; background: #f3f4f6">
     <div class="preheader">
-      Your OTP for Graduate is {{OTP_CODE}}. Do not share this code with anyone.
+      Hi {{name}}, your OTP for {{BRAND_NAME}} is {{otp}}. It expires in {{expire_at}} minutes.
     </div>
 
     <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -253,7 +270,7 @@
                         class="logoImg logoLight"
                         src="https://cdn.graduatefashionbd.com/logo/my_dark_logo.svg"
                         width="160"
-                        alt="Graduate"
+                        alt="{{BRAND_NAME}}"
                         style="width: 160px; height: auto"
                       />
 
@@ -262,7 +279,7 @@
                         class="logoImg logoDark"
                         src="https://cdn.graduatefashionbd.com/logo/my_light_logo.svg"
                         width="160"
-                        alt="Graduate"
+                        alt="{{BRAND_NAME}}"
                         style="width: 160px; height: auto"
                       />
                     </td>
@@ -296,9 +313,18 @@
                         </tr>
 
                         <tr>
+                          <td align="center" style="padding: 0 0 10px">
+                            <div class="p" style="margin: 0">
+                              Hi <strong>{{name}}</strong>,
+                            </div>
+                          </td>
+                        </tr>
+
+                        <tr>
                           <td align="center" style="padding: 0 0 16px">
                             <div class="p">
-                              Please use the following One Time Password (OTP) to access the form.
+                              Please use the following One Time Password (OTP) to verify your identity.
+                              This code will expire in <strong>{{expire_at}} minutes</strong>.
                             </div>
                           </td>
                         </tr>
@@ -310,10 +336,38 @@
                               <tr>
                                 <td align="center" style="padding: 14px 16px">
                                   <div class="otpLabel">OTP</div>
-                                  <div class="otpCode">{{OTP_CODE}}</div>
+                                  <div class="otpCode">{{otp}}</div>
                                 </td>
                               </tr>
                             </table>
+                          </td>
+                        </tr>
+
+                        <!-- Verify button -->
+                        <tr>
+                          <td align="center" style="padding: 8px 0 10px">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                <td align="center" class="btnWrap" style="border-radius:12px; background:#111827;">
+                                  <a href="{{verifyLink}}" target="_blank" class="btnText" style="display:inline-block; padding:12px 18px; font-size:15px; line-height:20px; font-weight:700; color:#ffffff;">
+                                    Verify Now
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
+                          </td>
+                        </tr>
+
+                        <!-- Fallback link -->
+                        <tr>
+                          <td align="center" style="padding: 0 0 14px">
+                            <div class="muted">
+                              If the button doesn’t work, copy and paste this link into your browser:
+                            </div>
+                            <div style="height:6px; line-height:6px; font-size:6px;">&nbsp;</div>
+                            <div class="muted" style="word-break: break-all;">
+                              <a class="link" href="{{verifyLink}}" target="_blank">{{verifyLink}}</a>
+                            </div>
                           </td>
                         </tr>
 
@@ -339,9 +393,7 @@
                   <!-- Footer -->
                   <tr>
                     <td align="center" class="px" style="padding: 16px 22px 20px">
-                      <div class="muted">
-                        Graduate Fashion | House 29, Road 05, Sector 11, Uttara, Dhaka 1230, Bangladesh.
-                      </div>
+                      <div class="muted">{{BRAND_NAME}} | {{BRAND_ADDRESS}}</div>
 
                       <div style="height: 10px; line-height: 10px; font-size: 10px">&nbsp;</div>
 
@@ -376,7 +428,7 @@
                       <div style="height: 14px; line-height: 14px; font-size: 14px">&nbsp;</div>
 
                       <div style="font-size: 12px; line-height: 18px; color: #9ca3af">
-                        © {{YEAR}} Graduate Fashion. All rights reserved.
+                        © {{year}} {{BRAND_NAME}}. All rights reserved.
                       </div>
                     </td>
                   </tr>
