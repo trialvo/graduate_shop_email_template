@@ -11,7 +11,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="format-detection" content="telephone=no,address=no,email=no,date=no,url=no" />
 
-    <!-- Prefer light by default, but allow supported clients to switch -->
+    <!-- Allow clients that support it to switch -->
     <meta name="color-scheme" content="light dark" />
     <meta name="supported-color-schemes" content="light dark" />
 
@@ -128,10 +128,9 @@
         text-decoration: underline;
       }
 
-      /* Name theming */
       .name {
         font-weight: 700;
-        color: #111827; /* light mode */
+        color: #111827;
       }
 
       .otpWrap {
@@ -156,7 +155,6 @@
         color: #111827;
       }
 
-      /* Primary button (verification link) */
       .btnWrap {
         border-radius: 12px;
         background: #111827;
@@ -168,14 +166,6 @@
         line-height: 20px;
         font-weight: 700;
         color: #ffffff;
-      }
-
-      /* Logos */
-      .logoLight {
-        display: block;
-      }
-      .logoDark {
-        display: none;
       }
 
       /* Mobile */
@@ -209,7 +199,8 @@
         }
       }
 
-      /* Dark mode (supported clients only) */
+      /* Dark mode (supported clients only)
+         IMPORTANT: use !important to override inline display */
       @media (prefers-color-scheme: dark) {
         .wrapper {
           background: #0b1220 !important;
@@ -228,12 +219,9 @@
         .muted {
           color: #cbd5e1 !important;
         }
-
-        /* Fix: name follows theme */
         .name {
           color: #f9fafb !important;
         }
-
         .otpWrap {
           background: #111827 !important;
           border-color: #1f2937 !important;
@@ -251,9 +239,10 @@
           background: #2563eb !important;
         }
 
-        /* Swap logos in dark mode */
+        /* Swap logos */
         .logoLight {
           display: none !important;
+          mso-hide: all !important;
         }
         .logoDark {
           display: block !important;
@@ -277,19 +266,22 @@
                   <!-- Header -->
                   <tr>
                     <td align="center" class="px" style="padding: 22px 22px 14px">
+                      <!-- Light logo (DEFAULT) -->
                       <img
                         class="logoImg logoLight"
-                        src="https://cdn.graduatefashionbd.com/logo/my_dark_logo.png"
+                        src="https://cdn.graduatefashionbd.com/logo/my_dark_logo.svg"
                         width="160"
                         alt="{{BRAND_NAME}}"
-                        style="width: 160px; height: auto"
+                        style="width: 160px; height: auto; display: block;"
                       />
+
+                      <!-- Dark logo (HIDDEN by default via INLINE display:none) -->
                       <img
                         class="logoImg logoDark"
-                        src="https://cdn.graduatefashionbd.com/logo/my_light_logo.png"
+                        src="https://cdn.graduatefashionbd.com/logo/my_light_logo.svg"
                         width="160"
                         alt="{{BRAND_NAME}}"
-                        style="width: 160px; height: auto"
+                        style="width: 160px; height: auto; display: none;"
                       />
                     </td>
                   </tr>
