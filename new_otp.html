@@ -128,6 +128,12 @@
         text-decoration: underline;
       }
 
+      /* Name theming */
+      .name {
+        font-weight: 700;
+        color: #111827; /* light mode */
+      }
+
       .otpWrap {
         width: 100%;
         max-width: 360px;
@@ -222,6 +228,12 @@
         .muted {
           color: #cbd5e1 !important;
         }
+
+        /* Fix: name follows theme */
+        .name {
+          color: #f9fafb !important;
+        }
+
         .otpWrap {
           background: #111827 !important;
           border-color: #1f2937 !important;
@@ -265,19 +277,16 @@
                   <!-- Header -->
                   <tr>
                     <td align="center" class="px" style="padding: 22px 22px 14px">
-                      <!-- Light mode logo (shown by default) -->
                       <img
                         class="logoImg logoLight"
-                        src="https://cdn.graduatefashionbd.com/logo/my_dark_logo.svg"
+                        src="https://cdn.graduatefashionbd.com/logo/my_dark_logo.png"
                         width="160"
                         alt="{{BRAND_NAME}}"
                         style="width: 160px; height: auto"
                       />
-
-                      <!-- Dark mode logo (only shown in clients supporting prefers-color-scheme) -->
                       <img
                         class="logoImg logoDark"
-                        src="https://cdn.graduatefashionbd.com/logo/my_light_logo.svg"
+                        src="https://cdn.graduatefashionbd.com/logo/my_light_logo.png"
                         width="160"
                         alt="{{BRAND_NAME}}"
                         style="width: 160px; height: auto"
@@ -315,7 +324,7 @@
                         <tr>
                           <td align="center" style="padding: 0 0 10px">
                             <div class="p" style="margin: 0">
-                              Hi <strong>{{name}}</strong>,
+                              Hi <span class="name">{{name}}</span>,
                             </div>
                           </td>
                         </tr>
@@ -348,8 +357,20 @@
                           <td align="center" style="padding: 8px 0 10px">
                             <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                               <tr>
-                                <td align="center" class="btnWrap" style="border-radius:12px; background:#111827;">
-                                  <a href="{{verifyLink}}" target="_blank" class="btnText" style="display:inline-block; padding:12px 18px; font-size:15px; line-height:20px; font-weight:700; color:#ffffff;">
+                                <td align="center" class="btnWrap" style="border-radius: 12px; background: #111827">
+                                  <a
+                                    href="{{verifyLink}}"
+                                    target="_blank"
+                                    class="btnText"
+                                    style="
+                                      display: inline-block;
+                                      padding: 12px 18px;
+                                      font-size: 15px;
+                                      line-height: 20px;
+                                      font-weight: 700;
+                                      color: #ffffff;
+                                    "
+                                  >
                                     Verify Now
                                   </a>
                                 </td>
@@ -364,8 +385,8 @@
                             <div class="muted">
                               If the button doesn’t work, copy and paste this link into your browser:
                             </div>
-                            <div style="height:6px; line-height:6px; font-size:6px;">&nbsp;</div>
-                            <div class="muted" style="word-break: break-all;">
+                            <div style="height: 6px; line-height: 6px; font-size: 6px">&nbsp;</div>
+                            <div class="muted" style="word-break: break-all">
                               <a class="link" href="{{verifyLink}}" target="_blank">{{verifyLink}}</a>
                             </div>
                           </td>
@@ -414,7 +435,6 @@
 
                       <div style="height: 16px; line-height: 16px; font-size: 16px">&nbsp;</div>
 
-                      <!-- Social URLs (max compatibility: text links) -->
                       <div class="muted">
                         <a href="https://graduatefashionbd.com" class="link">Website</a>
                         &nbsp;•&nbsp;
